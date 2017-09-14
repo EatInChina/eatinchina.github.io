@@ -402,16 +402,21 @@ layui.config({
 
 </body>
 </html>
-
+<script src="res\js\jquery-1.10.2.min.js"></script>
 <Script>
 $.ajax({
-url:"http://japi.juhe.cn/youdao/dictionary.from",
-type:"post",
-data:{ key: "e426f59e14edc880541256b7e2d0bb2b",word:"hellow"},
+url:"http://japi.juhe.cn/youdao/dictionary.from?key=e426f59e14edc880541256b7e2d0bb2b&word=test",
+type:"get",
+data:{},
+dataType:"jsonp",
 success:function(r){
 debugger;
 alert(r);
-},error :function(){
-alert('发送错误！');
-}});
+}, error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert(XMLHttpRequest.status);
+                        alert(XMLHttpRequest.readyState);
+                        alert(textStatus);
+                    }
+
+                  });
 </Script>
